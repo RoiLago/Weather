@@ -1,0 +1,115 @@
+body {
+	background: #ededed !important;
+	font-size: 15px !important;
+}
+
+.panel {
+	overflow-x: hidden;
+}
+
+.panel-heading {
+	font-size: 120%;
+	font-weight: bold;
+	padding-bottom: 0px !important;
+}
+
+.panel, .panel-heading, .panel-content {
+	border-radius: 0px !important;
+}
+
+.looking-ahead {
+ 	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+@media (max-width: 991px) {
+	.looking-ahead {
+ 		display: -moz-box;
+  		display: -ms-flexbox;
+	  	display: -webkit-flex;
+	  	display: flex;
+	  
+	  	-webkit-flex-flow: row wrap;
+	  	justify-content: space-around;
+	}
+}
+
+@media (min-width: 992px) {
+	.margin-top {
+		margin-top: 15px;
+	}
+}
+
+.weatherContainer {
+	color: #fff;
+	text-align: right;
+	padding: 15px 8px;
+	-webkit-box-flex: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	min-width: 130px;
+}
+
+@media (max-width: 425px) {
+	.weatherContainer {
+		flex-basis: 50%;
+	}
+}
+
+@media (min-width: 426px) and (max-width: 600px) {
+	.weatherContainer {
+		flex-basis: 50%;
+	}
+}
+
+.card-0 {
+	background-color: #1f4371;
+}
+
+.card-1 {
+	background-color: #2962a9;
+}
+
+.card-2 {
+	background-color: #347bd5;
+}
+
+.card-3 {
+	background-color: #609ae1;
+}
+
+.wi {
+	font-size: 20px;
+}
+
+.time {
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.smalltime {
+	font-size: 80%;
+	color: hsla(0, 0%, 100%, .75);
+}
+
+.databox {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.icon {
+	flex: 0 0 30px;
+	text-align: center;
+}
+
+.data {
+	flex: 1;
+	text-align: right;
+}

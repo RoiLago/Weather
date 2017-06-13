@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title th:text="#{title}">Weather in cities</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_es-es.min.js"></script>
+		<link rel="stylesheet" href="css/main.css"></link>
+		<link rel="stylesheet" href="css/weather-icons.min.css"></link>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+			integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+			crossorigin="anonymous"></link>
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+			integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+			crossorigin="anonymous"></link>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+			crossorigin="anonymous"></script>
+			
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+			
+		<script src="js/controller.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 margin-top" ng-app="app" ng-controller="controller as controller">
+                	<h1 class="ng-cloak" ng-show="controller.cityWeatherList.length == 0" th:text="#{empty}">Empty</h1>
+					<div class="ng-cloak row panel" ng-repeat="cityWeather in controller.cityWeatherList">
+						<div class="panel-heading">{{cityWeather.cityName}}</div>
+						<div class="panel-body looking-ahead">
+							<div class="weatherContainer card-{{$index}}" ng-repeat="weather in cityWeather.weatherList">
+								<div class="time">
+									<div>{{weather.dateTime | date:'EEEE'}}</div>
+									<div class="smalltime">{{weather.dateTime | date:'dd/MM/yy HH:mm'}}</div>
+								</div>
+								<div class="time">
+									<img ng-src="{{weather.icon}}"></img>
+								</div>
+								<div class="databox">
+									<div class="icon" th:title="#{thermometer}"><i class="wi wi-thermometer"></i></div>
+									<div class="data">{{weather.temperature}} °C</div>
+								</div>
+								<div class="databox">
+									<div class="icon" th:title="#{barometer}"><i class="wi wi-barometer"></i></div>
+									<div class="data">{{weather.pressure}} hPa</div>
+								</div>
+								<div class="databox">
+									<div class="icon" th:title="#{humidity}"><i class="wi wi-humidity"></i></div>
+									<div class="data">{{weather.humidity}} %</div>
+								</div>
+								<div class="databox">
+									<div class="icon" th:title="#{windSpeed}"><i class="wi wi-strong-wind"></i></div>
+									<div class="data">{{weather.windSpeed}} m/s</div>
+								</div>
+								<div class="databox">
+									<div class="icon" th:title="#{windDegree}"><i class="wi wi-wind-direction"></i></div>
+									<div class="data">{{weather.windDegree}} °</div>
+								</div>
+								<div class="databox">
+									<div class="icon" th:title="#{rain}"><i class="wi wi-rain"></i></div>
+									<div class="data">{{weather.rain}} %</div>
+								</div>
+								<div class="databox">
+									<div class="icon" th:title="#{clouds}"><i class="wi wi-cloudy"></i></div>
+									<div class="data">{{weather.clouds}} %</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>
